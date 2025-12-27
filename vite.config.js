@@ -5,5 +5,5 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react({ jsxRuntime: "classic" }), tailwindcss()],
-  base: "/caja-de-ritmos/",
+  base: "/reloj-25-5-freecodecamp/",
 });

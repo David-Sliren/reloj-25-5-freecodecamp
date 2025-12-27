@@ -1,9 +1,14 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
 @utility no-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+@utility color-btn {
+  @apply bg-zinc-900/20 backdrop-blur-2xl py-2 px-4 border-1 rounded-md text-xl font-bold font-mono cursor-pointer shadow-lg hover:bg-zinc-900/90 hover:text-white;
 }

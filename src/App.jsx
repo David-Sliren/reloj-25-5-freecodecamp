@@ -1,94 +1,67 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
-import Display from "./components/Display";
-import DrumpPad from "./components/DrumpPad";
-
-const tracks = [
-  {
-    word: "Q",
-    percution: "Header1",
-    audio:
-      "https://cdn.freecodecamp.org/testable-projects-fcc/audio/Heater-1.mp3",
-  },
-  {
-    word: "W",
-    percution: "Header2",
-    audio:
-      "https://cdn.freecodecamp.org/testable-projects-fcc/audio/Heater-2.mp3",
-  },
-  {
-    word: "E",
-    percution: "Header3",
-    audio:
-      "https://cdn.freecodecamp.org/testable-projects-fcc/audio/Heater-3.mp3",
-  },
-  {
-    word: "A",
-    percution: "Header4",
-    audio:
-      "https://cdn.freecodecamp.org/testable-projects-fcc/audio/Heater-4_1.mp3",
-  },
-  {
-    word: "S",
-    percution: "Clap",
-    audio:
-      "https://cdn.freecodecamp.org/testable-projects-fcc/audio/Heater-6.mp3",
-  },
-  {
-    word: "D",
-    percution: "Open-HH",
-    audio:
-      "https://cdn.freecodecamp.org/testable-projects-fcc/audio/Dsc_Oh.mp3",
-  },
-  {
-    word: "Z",
-    percution: "Kick-n-Hat",
-    audio:
-      "https://cdn.freecodecamp.org/testable-projects-fcc/audio/Kick_n_Hat.mp3",
-  },
-  {
-    word: "X",
-    percution: "Kick",
-    audio:
-      "https://cdn.freecodecamp.org/testable-projects-fcc/audio/RP4_KICK_1.mp3",
-  },
-  {
-    word: "C",
-    percution: "Closed-HH",
-    audio:
-      "https://cdn.freecodecamp.org/testable-projects-fcc/audio/Cev_H2.mp3",
-  },
-];
+import Timmer from "./components/Timmer";
+import Controls from "./components/Controls";
+import Elements from "./components/Elements";
+import useBtnLogic from "./hooks/useBtnLogic";
 
 function App() {
-  const [description, setDescription] = useState("Click a word");
+  const { breakLength, sessionLength, timeLeft, alarm, isBreak, functions } =
+    useBtnLogic();
+
+  const {
+    reset,
+    sessionIncrement,
+    breakIncrement,
+    sessionDecrement,
+    breakDecrement,
+    playStop,
+    convertMinutes,
+  } = functions;
 
   return (
     <>
-      <main className="bg-sky-800/80 flex flex-col gap-2 h-dvh pt-10 p-2 ">
-        <h1 className="text-white text-shadow-md text-shadow-zinc-600 text-center text-6xl font-bold mb-10">
-          CAJA DE RITMOS
+      <main className="bg-zinc-900/80 flex flex-col items-center gap-8 h-dvh pb-10 pt-10 p-2  overflow-y-auto overflow-x-hidden">
+        <h1 className="text-zinc-950 text-shadow-md text-shadow-stone-600 text-center text-6xl font-extrabold mb-10">
+          RELOJ 25+5
         </h1>
-        <section
-          id="drum-machine"
-          className="flex flex-col bg-zinc-500 p-4 size-150 self-center space-y-4 rounded-xl border-2 shadow-lg"
-        >
-          <Display text={description} />
-          <section className="grid grid-cols-3 gap-2 h-full">
-            {tracks.map((item, i) => {
-              return (
-                <DrumpPad
-                  key={i}
-                  id={item.percution}
-                  name={item.word}
-                  setDescriptionText={setDescription}
-                  setWord={item.word}
-                  audio={item.audio}
-                ></DrumpPad>
-              );
-            })}
-          </section>
+        <section className="flex gap-20">
+          <Elements
+            id="break-label"
+            id2="break-length"
+            textP="Break Length"
+            textS={breakLength}
+            btnId2="break-decrement"
+            btnId="break-increment"
+            btnText="+"
+            btnText2="-"
+            logic={breakIncrement}
+            logic2={breakDecrement}
+          />
+          <Elements
+            id="session-label"
+            id2="session-length"
+            textP="Session Length"
+            textS={sessionLength}
+            btnId2="session-decrement"
+            btnId="session-increment"
+            btnText="+"
+            btnText2="-"
+            logic={sessionIncrement}
+            logic2={sessionDecrement}
+          />
         </section>
+        <Timmer
+          time={convertMinutes(timeLeft)}
+          btnId="start_stop"
+          btnId2="reset"
+          btnText="Start"
+          btnText2="reset"
+          logic={reset}
+          logic2={playStop}
+          title={isBreak}
+        />
+        <audio id="beep" src="./public/sounds/miku-alarm.mp3" ref={alarm} />
       </main>
     </>
   );
