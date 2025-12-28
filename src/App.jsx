@@ -21,11 +21,11 @@ function App() {
 
   return (
     <>
-      <main className="bg-zinc-900/80 flex flex-col items-center gap-8 h-dvh pb-10 pt-10 p-2  overflow-y-auto overflow-x-hidden">
-        <h1 className="text-zinc-950 text-shadow-md text-shadow-stone-600 text-center text-6xl font-extrabold mb-10">
+      <main className="bg-zinc-900/80 flex flex-col items-center gap-8 h-dvh pb-30 pt-15  overflow-y-auto overflow-x-hidden">
+        <h1 className="text-zinc-950 text-shadow-md text-shadow-stone-600 text-center text-5xl font-extrabold mb-10 md:text-6xl">
           RELOJ 25+5
         </h1>
-        <section className="flex gap-20">
+        <section className="flex flex-col gap-20 md:flex-row">
           <Elements
             id="break-label"
             id2="break-length"
