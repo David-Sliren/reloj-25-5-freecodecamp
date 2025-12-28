@@ -22,7 +22,7 @@ function App() {
 
   return (
     <>
-      <main className="bg-zinc-900/80 flex flex-col items-center gap-8 h-dvh pb-30 pt-15  overflow-y-auto overflow-x-hidden">
+      <main className="bg-zinc-900/80 flex flex-col items-center gap-8 h-dvh pb-30 pt-15  overflow-y-auto overflow-x-hidden lg: py-15">
         <h1 className="text-zinc-950 text-shadow-md text-shadow-stone-600 text-center text-5xl font-extrabold mb-10 md:text-6xl">
           RELOJ 25+5
         </h1>
