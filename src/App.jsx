@@ -4,6 +4,7 @@ import Timmer from "./components/Timmer";
 import Controls from "./components/Controls";
 import Elements from "./components/Elements";
 import useBtnLogic from "./hooks/useBtnLogic";
+import sound from "./assets/sounds/miku-alarm.mp3";
 
 function App() {
   const { breakLength, sessionLength, timeLeft, alarm, isBreak, functions } =
@@ -61,7 +62,7 @@ function App() {
           logic2={playStop}
           title={isBreak}
         />
-        <audio id="beep" src="./public/sounds/miku-alarm.mp3" ref={alarm} />
+        <audio id="beep" src={sound} ref={alarm} />
       </main>
     </>
   );
