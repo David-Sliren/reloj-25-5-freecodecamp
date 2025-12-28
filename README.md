@@ -1,16 +1,16 @@
-# React + Vite
+# ⏳ Reloj 25+5 - freeCodeCamp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es un proyecto de temporizador estilo Pomodoro desarrollado para obtener la certificación de **Front End Development Libraries** de [freeCodeCamp](https://www.freecodecamp.org/). La aplicación permite gestionar intervalos de trabajo y descanso para mejorar la productividad.
 
-Currently, two official plugins are available:
+## ✨ Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Temporizador de Sesión y Descanso:** Configura tiempos personalizados para tus intervalos.
+- **Notificaciones Auditivas:** Alerta sonora al finalizar cada ciclo.
+- **Diseño Responsivo:** Interfaz moderna y adaptable construida con **Tailwind CSS v4**.
+- **Lógica de Estado:** Gestión precisa del tiempo y transiciones de estado.
 
-## React Compiler
+## 🛠️ Tecnologías
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React:** Framework principal para la interfaz de usuario.
+- **Tailwind CSS v4:** Motor de estilos de última generación para un diseño rápido y eficiente.
+- **Vite:** Herramienta de construcción y entorno de desarrollo.
